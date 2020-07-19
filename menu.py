@@ -74,8 +74,6 @@ markup.add('Yes', 'No', '/admin')
 # cities
 
 cities = types.InlineKeyboardMarkup(row_width=3)
-cities.add(
-    types.InlineKeyboardButton(text='🇷🇺 Россия', callback_data='ru'),
-    types.InlineKeyboardButton(text='🇺🇦 Украина', callback_data='ua'),
+cities.add(    
     types.InlineKeyboardButton(text='🇰🇿 Казахстан', callback_data='kz')
 )

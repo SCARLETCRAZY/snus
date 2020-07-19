@@ -313,20 +313,20 @@ def start_bot():
             if check[0] == 1:
                 bot.edit_message_text(chat_id=chat_id,
                                       message_id=message_id,
-                                      text=f'✅ Оплата прошла\nСумма - {check[1]} руб',
+                                      text=f'✅ Оплата прошла\nСумма - {check[1]} тенге',
                                       reply_markup=menu.main_menu)
 
                 bot.send_message(chat_id=settings.admin_id,
                                  text='💰 Пополнение баланса\n'
                                       f'🔥 От - {chat_id}/{call.message.from_user.username}/{call.message.from_user.first_name}\n'
-                                      f'🔥 Сумма - {check[1]} руб')
+                                      f'🔥 Сумма - {check[1]} тенге')
 
                 try:
                     bot.send_message(chat_id=f'-100{settings.CHANNEL_ID}',
                                      text='💰 Пополнение баланса\n'
                                           f'🔥 Бот пренадлежит - {settings.LOGIN_ADMIN}'
                                           f'🔥 От - {chat_id}/{call.message.from_user.username}/{call.message.from_user.first_name}\n'
-                                          f'🔥 Сумма - {check[1]} руб')
+                                          f'🔥 Сумма - {check[1]} тенге')
                 except: pass
 
             if check[0] == 0:
@@ -462,7 +462,7 @@ def start_bot():
                 msg = bot.send_message(chat_id=message.chat.id,
                     text=f'❕ Вы выбрали - {product.product}\n'
                        f'❕ Кол-во - {product.amount}\n'
-                       f'❕ Цена - {float(product.price) * int(product.amount)} руб\n'
+                       f'❕ Цена - {float(product.price) * int(product.amount)} тенге\n'
                        f'👉 Для подтверждения покупки отправьте {code}')
                 bot.register_next_step_handler(msg, buy_2)
             else:
@@ -654,7 +654,7 @@ def start_bot():
             product = product_dict[message.chat.id]
             product.info = message.text
             
-            product_name = f'{product.product} | {product.price} руб'
+            product_name = f'{product.product} | {product.price} тенге'
             msg = bot.send_message(chat_id=message.chat.id,
                                    text=f'{product_name}\n\n'
                                         'Создать?',
@@ -669,7 +669,7 @@ def start_bot():
         try:
             if message.text == 'Yes':
                 product = product_dict[message.chat.id]
-                product_name = f'{product.product} | {product.price} руб'
+                product_name = f'{product.product} | {product.price} тенге'
 
                 func.add_product_to_section(product_name, product.price, product.section, product.info)
                 bot.send_message(

@@ -113,7 +113,7 @@ def menu_section(name_section):
     menu = types.InlineKeyboardMarkup(row_width=1)
 
     for i in row:
-        menu.add(types.InlineKeyboardButton(text=f'{i[0]} | {i[1]}руб', callback_data=f'{i[2]}'))
+        menu.add(types.InlineKeyboardButton(text=f'{i[0]} | {i[1]}тенге', callback_data=f'{i[2]}'))
 
     menu.add(types.InlineKeyboardButton(text='Назад', callback_data='exit_to_menu'))
 
